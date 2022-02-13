@@ -26,8 +26,8 @@ a:hover{
 
 img{
     border: 1px solid gray;
-    width: 800px;
-    height: auto;
+    width: auto;
+    height: 640px;
 }
 
 button{
