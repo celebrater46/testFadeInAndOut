@@ -18,11 +18,6 @@ const getNextImage = () => {
 const resetOpacity = () => {
     if(finished[0] && finished[1]){
         const nextImage = elOne.src.substr(-5);
-        // let image = new Image();
-        // image.onload = () => {
-        //     elZero.src = nextImage;
-        // };
-        // image.src = nextImage;
         elZero.src = nextImage;
         window.setTimeout(() => {
             elZero.style.opacity = 1;
@@ -40,12 +35,6 @@ const changeImage = () => {
     if(elOne.style.opacity !== 0){
         elOne.style.opacity = 0;
     }
-    // console.log(elZero.src);
-    // console.log(elOne.src);
-    // if(elZero.src === elOne.src) {
-    //     console.log("HELLO!!!!!!!!!!!!!");
-    //     elOne.src = getNextImage();
-    // }
 
     let opacityZero = elZero.style.opacity * 100;
     // フェードアウトの処理（opacityを100ミリ秒ごとに0.1づつ減らす）
