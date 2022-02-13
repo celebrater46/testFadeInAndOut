@@ -2,15 +2,7 @@
 
 const elZero = document.getElementById("zero");
 const elOne = document.getElementById("one");
-// let isReverse = false;
 let finished = [];
-
-// const toggle = () => {
-//     if(finished[0] && finished[1]){
-//         isReverse = !isReverse;
-//         finished = [false, false];
-//     }
-// }
 
 const getNextImage = () => {
     const src = elZero.src.substr(-5);
@@ -25,18 +17,13 @@ const getNextImage = () => {
 
 const resetOpacity = () => {
     if(finished[0] && finished[1]){
-        // isReverse = !isReverse;
         const nextImage = elOne.src.substr(-5);
         let image = new Image();
         image.onload = () => {
-            // console.log(image.naturalWidth);
-            // finished[0] = true;
             elZero.src = nextImage;
-            // elZero.style.opacity = 1;
             window.setTimeout(() => {
                 elZero.style.opacity = 1;
             }, 100);
-            // elOne.style.opacity = 0;
         };
         image.src = nextImage;
         finished = [false, false];
@@ -44,7 +31,6 @@ const resetOpacity = () => {
 }
 
 const changeImage = () => {
-    // finished = [false, false];
     if(elZero.style.opacity === "" || elZero.style.opacity === 0) {
         elZero.style.opacity = 1;
     }
@@ -57,8 +43,6 @@ const changeImage = () => {
         console.log("HELLO!!!!!!!!!!!!!");
         elOne.src = getNextImage();
     }
-    // elZero.style.opacity = isReverse ? 0 : 1;
-    // elOne.style.opacity = isReverse ? 1 : 0;
 
     let opacityZero = elZero.style.opacity * 100;
     // フェードアウトの処理（opacityを100ミリ秒ごとに0.1づつ減らす）
@@ -68,19 +52,8 @@ const changeImage = () => {
         console.log("opacityZero: " + opacityZero);
         if(elZero.style.opacity <= 0){
             clearInterval(intervalZero);
-            // elZero.src = "1.jpg";
             finished[0] = true;
             resetOpacity();
-            // let image = new Image();
-            // image.onload = () => {
-            //     console.log(image.naturalWidth);
-            //     finished[0] = true;
-            // };
-            // image.src = "1.jpg";
-            // elZero.style.opacity = 1;
-            // isReverse = !isReverse;
-
-            // toggle();
         }
     }, 100);
 
@@ -92,21 +65,9 @@ const changeImage = () => {
         console.log("opacityOne: " + opacityOne);
         if(elOne.style.opacity >= 1){
             clearInterval(intervalOne);
-            // elOne.style.opacity = 0;
-            // elOne.src = "0.jpg";
             finished[1] = true;
             resetOpacity();
-            // let image = new Image();
-            // image.onload = () => {
-            //     console.log(image.naturalWidth);
-            //     finished[1] = true;
-            // };
-            // image.src = "1.jpg";
-            // toggle();
         }
     }, 100);
-
-
-    // console.log(isReverse);
 }
 
