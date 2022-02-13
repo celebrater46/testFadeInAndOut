@@ -2,15 +2,8 @@
 
 const elZero = document.getElementById("zero");
 const elOne = document.getElementById("one");
-let nth = 0; // 何番目の画像か
 
-
-let intervalId;
-// let image = document.getElementById('targetImage');
-// image.onclick = changeImage;
-
-function changeImage () {
-
+const changeImage = () => {
     if(elZero.style.opacity == ''){
         elZero.style.opacity = 1;
     }
@@ -21,17 +14,8 @@ function changeImage () {
         opacityZero = opacityZero - 10;
         elZero.style.opacity = opacityZero / 100;
         console.log("opacityZero: " + opacityZero);
-
         if(elZero.style.opacity <= 0){
             clearInterval(intervalZero);
-            //画像を交換
-            // if(image.src === 'https://picsum.photos/id/1080/200'){
-            //     image.src = 'https://picsum.photos/id/1039/200';
-            // }else{
-            //     image.src = 'https://picsum.photos/id/1080/200';
-            // }
-
-
         }
     }, 100);
 
